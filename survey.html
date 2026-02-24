@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movie Survey · CineMatch</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-gray-950 text-white min-h-screen flex flex-col">
+
+  <!-- Nav -->
+  <nav class="px-8 py-4 flex items-center justify-between border-b border-gray-800">
+    <a href="index.html" class="text-red-500 font-bold text-xl tracking-wide">
+      <i class="fa-solid fa-film mr-2"></i>CineMatch
+    </a>
+    <span class="text-gray-500 text-sm">Step 1 of 1 — Your Taste Profile</span>
+  </nav>
+
+  <main class="flex-1 px-6 py-10 max-w-6xl mx-auto w-full">
+
+    <h1 class="text-3xl font-extrabold mb-2">Your Must-Watch Movie Survey</h1>
+    <p class="text-gray-400 mb-8">
+      Select as many as you like in each category.
+      <kbd class="kbd">Ctrl</kbd> + click (or <kbd class="kbd">Cmd</kbd> + click on Mac)
+      to pick multiple items. You can also skip and get top-rated results.
+    </p>
+
+    <!-- Error banner (hidden by default) -->
+    <div id="error-banner" class="hidden bg-red-900 border border-red-600 text-red-200 rounded-lg px-4 py-3 mb-6 flex items-center gap-2">
+      <i class="fa-solid fa-circle-exclamation"></i>
+      <span id="error-text">Could not load survey data.</span>
+    </div>
+
+    <!-- Loading state -->
+    <div id="loading" class="flex items-center gap-3 text-gray-400 mb-8">
+      <i class="fa-solid fa-spinner fa-spin"></i> Loading survey data…
+    </div>
+
+    <!-- Survey grid (hidden until data loads) -->
+    <form id="survey-form" class="hidden">
+      <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 mb-10">
+
+        <div class="list-panel">
+          <label class="list-label">
+            <i class="fa-solid fa-user-tie mr-2 text-red-400"></i>Actors
+          </label>
+          <select id="actors-list" multiple class="survey-select"></select>
+        </div>
+
+        <div class="list-panel">
+          <label class="list-label">
+            <i class="fa-solid fa-video mr-2 text-red-400"></i>Directors
+          </label>
+          <select id="directors-list" multiple class="survey-select"></select>
+        </div>
+
+        <div class="list-panel">
+          <label class="list-label">
+            <i class="fa-solid fa-tags mr-2 text-red-400"></i>Genres
+          </label>
+          <select id="genres-list" multiple class="survey-select"></select>
+        </div>
+
+        <div class="list-panel">
+          <label class="list-label">
+            <i class="fa-solid fa-ticket mr-2 text-red-400"></i>Movie Titles
+          </label>
+          <select id="titles-list" multiple class="survey-select"></select>
+        </div>
+
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center gap-4">
+        <button type="submit"
+                class="btn-primary px-10 py-3 rounded-full font-bold inline-flex items-center gap-2 text-base">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+          Get My Recommendations
+        </button>
+        <button type="button" id="skip-btn"
+                class="btn-secondary px-8 py-3 rounded-full font-semibold inline-flex items-center gap-2 text-base">
+          <i class="fa-solid fa-forward"></i>
+          Skip — Show Top Rated
+        </button>
+      </div>
+    </form>
+
+  </main>
+
+  <footer class="text-center text-gray-600 text-sm py-4">
+    Powered by TMDB &amp; IMDB · Data for personal use only
+  </footer>
+
+  <script src="js/survey.js"></script>
+</body>
+</html>

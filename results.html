@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Picks · CineMatch</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-gray-950 text-white min-h-screen flex flex-col">
+
+  <!-- Nav -->
+  <nav class="px-8 py-4 flex items-center justify-between border-b border-gray-800">
+    <a href="index.html" class="text-red-500 font-bold text-xl tracking-wide">
+      <i class="fa-solid fa-film mr-2"></i>CineMatch
+    </a>
+    <a href="survey.html" class="text-gray-400 hover:text-white text-sm transition">
+      <i class="fa-solid fa-arrow-left mr-1"></i>Back to Survey
+    </a>
+  </nav>
+
+  <main class="flex-1 px-6 py-10 max-w-6xl mx-auto w-full">
+
+    <h1 class="text-3xl font-extrabold mb-2">Your Top 5 Picks</h1>
+    <p id="subtitle" class="text-gray-400 mb-8">
+      Based on your taste profile — enjoy!
+    </p>
+
+    <!-- Loading spinner -->
+    <div id="loading" class="flex flex-col items-center justify-center py-24 gap-4 text-gray-400">
+      <i class="fa-solid fa-spinner fa-spin text-4xl text-red-500"></i>
+      <p class="text-lg">Analysing your taste profile…</p>
+    </div>
+
+    <!-- Error state -->
+    <div id="error-box" class="hidden bg-red-900 border border-red-600 rounded-xl p-6 text-center">
+      <i class="fa-solid fa-triangle-exclamation text-red-400 text-3xl mb-3"></i>
+      <p id="error-text" class="text-red-200 mb-4">Something went wrong.</p>
+      <a href="survey.html" class="btn-primary px-6 py-2 rounded-full text-sm font-semibold">
+        Try Again
+      </a>
+    </div>
+
+    <!-- Results grid -->
+    <div id="results-container" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6"></div>
+
+    <!-- Start over -->
+    <div id="actions" class="hidden mt-10 flex justify-center">
+      <a href="survey.html"
+         class="btn-secondary px-8 py-3 rounded-full font-semibold inline-flex items-center gap-2">
+        <i class="fa-solid fa-rotate-left"></i>
+        Start Over
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="text-center text-gray-600 text-sm py-4">
+    Powered by TMDB &amp; IMDB · Data for personal use only
+  </footer>
+
+  <script src="js/results.js"></script>
+</body>
+</html>
